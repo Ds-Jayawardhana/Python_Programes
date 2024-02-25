@@ -1,0 +1,47 @@
+
+
+acc_num=0
+with_amount=None
+
+accounts = {77493843:{"balance_acc":10000}, 20110159:{"balance_acc":15000,},41920784:{"balance_acc":1000},16340262:{"balance_acc": 34000},27323237:{"balance_acc": 43567}}
+def balance():
+    print("Account balance is $ :",accounts[acc_num]["balance_acc"])
+
+def withdraw():
+    global with_amount
+    with_amount=print("Enter an Amount to withdraw:-")
+    while with_amount<accounts[acc_num]["balance_acc"]:
+        
+        if with_amount>=accounts[acc_num]["balance_acc"]:
+            print("Sorry You can't Withdraw Money")
+            print("Withdraw amount should lesser than Account Balance")
+            print(f"Your Account Balnce is {balance()}")
+
+def deposit():
+    # Implement the deposit logic here
+    pass
+
+def main():
+    global acc_num 
+    acc_num = int(input("Enter your account Number:-"))
+    while True:
+        if acc_num in accounts:
+            print("Enter option 01:-To check the Balance")
+            print("Enter option 02:-To Withdraw Money")
+            print("Enter option 03:To Deposit Money")
+            option = int(input("Choose one of 3 Options"))
+            if option == 1:
+                balance()
+            elif option == 2:
+                withdraw()
+            elif option == 3:
+                deposit()
+            else:
+                print("Please Enter a Number between 1 and 3")
+                continue 
+        else:
+            print("Invalid account number. Please try again.")
+            acc_num = int(input("Enter your account Number:-"))
+            continue  
+
+main()
